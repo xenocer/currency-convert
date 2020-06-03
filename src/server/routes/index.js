@@ -20,8 +20,8 @@ router.get('/', async (ctx) => {
 router.post('/webhook', async (ctx) => {
     ctx.status = 200
     let body = _.get(ctx.request.body, 'events', {})
-    let content = body[0]
-    console.log(content)
+    // let content = body[0]
+    console.log(body)
 })
 
 module.exports = router;
