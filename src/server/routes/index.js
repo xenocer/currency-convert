@@ -7,5 +7,12 @@ router.get('/', async (ctx) => {
         message: 'hello, world!'
     };
 })
+router.get('/webhook', async (ctx) => {
+    ctx.body = {
+        status: 200,
+        status: 'success',
+        message: 'Webhook success'
+    };
+})
 
 module.exports = router;
