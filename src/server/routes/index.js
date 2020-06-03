@@ -3,15 +3,12 @@ const router = new Router();
 
 router.get('/', async (ctx) => {
     ctx.body = {
-        status: 'success',
-        message: 'hello, world!'
+        message: 'Currency Convert API'
     };
 })
-router.get('/webhook', async (ctx) => {
-    ctx.body = {
-        status: 'success',
-        message: 'Webhook success'
-    };
+router.post('/webhook', async (ctx) => {
+    ctx.status = 200
+    console.log(ctx)
 })
 
 module.exports = router;
