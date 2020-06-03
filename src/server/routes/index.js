@@ -8,8 +8,8 @@ router.get('/', async (ctx) => {
     };
 })
 router.get('/webhook', async (ctx) => {
+    ctx.status = 200
     ctx.body = {
-        status: 200,
         status: 'success',
         message: 'Webhook success'
     };
