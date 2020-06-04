@@ -2,3 +2,4 @@
 node_modules
 config
 deploy token gitlab.txt
+package-lock.json
