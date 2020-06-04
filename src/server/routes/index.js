@@ -24,8 +24,9 @@ router.post('/webhook', async (ctx) => {
     let replyToken = content.replyToken
     console.log(text)
     console.log(sender)
-    let regex = new RegExp('([A-Za-z])\\w+', 'g')
-    let amount = text.trim().split(regex)
+    let regex = new RegExp('[a-z]+|[^a-z]+', 'gi')
+    let trim = _.trim(text, ' ')
+    let amount = trim.match(regex)
     console.log(amount)
     // await fixer.convertCurrency()
 })
