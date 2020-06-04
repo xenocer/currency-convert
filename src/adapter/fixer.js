@@ -1,10 +1,13 @@
 const axios = require('axios')
 const config = require('config');
-const fixer = `http://data.fixer.io/api/latest?access_key =${config.get('FIXER_TOKEN')}`
+const _ = require('lodash')
+const exchangeRate = `https://api.exchangeratesapi.io/latest?base=`
 const adapter = {
-    convertCurrency(from, to, amount) {
-        return axios.get(`${fixer}&from=${from}&to=${to}&amount=${amount}`).then(resp => {
-            console.log(resp)
+    lastedCurrency( amount, unit) {
+        return axios.get(`${exchangeRate}${unit}`).then(resp => {
+            let rates = resp.data.rates
+            let THBRate = rates.THB
+            return _.round(amount * THBRate, 4)
         }).catch(err => {
             throw err
         })
