@@ -18,6 +18,7 @@ router.get('/', async (ctx) => {
 router.post('/webhook', async (ctx) => {
     ctx.status = 200
     let body = _.get(ctx.request.body, 'events', {})
+    console.log(body)
     let content = body[0]
     let text = content.message.text
     let sender = content.source.userId
@@ -26,8 +27,11 @@ router.post('/webhook', async (ctx) => {
     console.log(sender)
     let regex = new RegExp('[a-z]+|[^a-z]+', 'gi')
     let trim = _.trim(text, ' ')
-    let amount = trim.match(regex)
+    let split = trim.match(regex)
+    let amount = split[0]
+    let unit = _.isNil(split[1])||_.isEmpty(split[1])? 'USD' : _.toUpper(split[1])
     console.log(amount)
+    console.log(unit)
     // await fixer.convertCurrency()
 })
 
