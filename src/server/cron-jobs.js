@@ -9,7 +9,7 @@ cron.schedule(JOB_SCHEDULE, () => {
     let Unit = config.get('CURRENCYS')
     _.forEach(Unit,async data => {
         await fixer.lastedRate(data).then(resp => {
-            let item = JSON.stringify(resp)
+            let item = JSON.stringify(resp);
             redis.set(data, item)
         })
     })
