@@ -3,6 +3,14 @@ const config = require('config');
 const _ = require('lodash')
 const exchangeRate = `https://api.exchangeratesapi.io/latest?base=`
 const adapter = {
+    lastedRate (unit) {
+        return axios.get(`${exchangeRate}${unit}`).then(resp => {
+            let rates = resp.data.rates
+            return rates
+        }).catch(err => {
+            throw err
+        })
+    },
     lastedCurrency( amount, unit) {
         return axios.get(`${exchangeRate}${unit}`).then(resp => {
             let rates = resp.data.rates
