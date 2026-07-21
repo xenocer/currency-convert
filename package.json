@@ -19,7 +19,7 @@
   "homepage": "https://github.com/xenocer/currency-convert#readme",
   "dependencies": {
     "@line/bot-sdk": "^6.8.4",
-    "axios": "1.15.0",
+    "axios": "1.18.0",
     "config": "^3.3.1",
     "ioredis": "^4.17.3",
     "koa": "^2.12.0",
